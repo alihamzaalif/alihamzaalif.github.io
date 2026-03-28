@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Hamza Alif</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">🌓</button>
+
+    <h1 id="name">Shaikh Mohammed Ali Hamza Alif</h1>
+    
+    <div class="container">
+        <div class="profile-sidebar">
+            <img src="./profile-image.jpg" alt="Shaikh Mohammed Ali Hamza Alif" class="profileImage">
+            <div class="socials">
+                <a href="https://github.com/alihamzaalif" target="_blank"><img src="github.png" alt="GitHub" class="icons"></a>
+                <a href="https://www.linkedin.com/in/sk-md-ali-hamza-alif-9339752a2/" target="_blank"><img src="linkedin.png" alt="LinkedIn" class="icons"></a>
+                <a href="https://leetcode.com/u/alihamzaalif/" target="_blank"><img src="leetcode.png" alt="LeetCode" class="icons"></a>
+            </div>
+        </div>
+        
+        <div class="textarea">
+            <h2 class="inter welcome">Welcome</h2>
+            <p class="introduction">Hi, I am <b>Shaikh Mohammed Ali Hamza Alif</b>, a technologist driven by a deep-seated curiosity about how systems—both digital and physical—actually work. Currently pursuing a Post Graduate Diploma in IT at the University of Dhaka’s Institute of Information Technology and also working there as a Research Assistant, I bring a unique perspective to the field by combining my knowledge of business studies with a rigorous focus on software engineering and system architecture. Whether I’m navigating my role as a Research Assistant, learning new things, or developing full-stack applications, I prioritize efficiency and data integrity.</p>
+            
+            <p class="introduction">Beyond the screen, I’m an avid Linux power user and hardware enthusiast who finds genuine satisfaction in the "bare-metal" side of computing. My experience managing a high-performance home server has turned me into a dedicated troubleshooter; I enjoy the challenge of diagnosing hardware bottlenecks, resolving storage errors, and fine-tuning system performance to get every bit of potential out of a machine. From coordinating coding competitions to maintaining stable server environments, I am committed to building clean, reliable tech and staying at the forefront of emerging hardware and software trends.</p>
+
+            <p class="introduction">
+                <b>Technical Skills:</b> Microsoft Suite, Google Suite, Adobe Photoshop, Canva, Python, Django, Database (MySQL), C/C++, Linux, 
+HTML and CSS. <br>
+<b>Soft Skills:</b> Attention to Detail, Time Management, Problem Solving, Critical Analysis, Effective Communication, Adaptability,
+Eagerness to Learn, Computer Hardware, Tech Savvy, Troubleshooting <br>
+<b>Interests:</b> Strategic planning and project management, Learning new technologies and programming languages, Music, Video Games.
+            </p>
+        </div>
+    </div>
+
+    <main class="portfolio-container">
+        <section class="info-section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="institution">Institute of Information Technology, University of Dhaka</span>
+                    <span class="date">2025 — Present</span>
+                </div>
+                <div class="entry-details">Post Graduate Diploma in IT</div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="institution">Bangladesh University of Professionals</span>
+                    <span class="date">2020 — 2023</span>
+                </div>
+                <div class="entry-details">BBA in Management Studies | CGPA: 3.46</div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2 class="section-title">Work Experience</h2>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="role">Research Assistant at ICSETEP</span>
+                    <span class="date">2025 — Present</span>
+                </div>
+                <div class="entry-details">
+                    Digital Transformation
+of Insurance Operations in Bangladesh through ERP: Enhancing Sustainability, Compliance, and
+Service Excellence
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="role">Business Development Executive</span>
+                    <span class="date">May 2025 — Aug 2025</span>
+                </div>
+                <div class="entry-details">
+                    Aim Vision Limited | Managed government procurement contracts and research reports.
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="role">Intern</span>
+                    <span class="date">Jan 2024 — Apr 2024</span>
+                </div>
+                <div class="entry-details">
+                    NRB Bank Limited | Maintained customer records and stakeholder communication.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check local storage for user preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+            } else if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                // If no class is explicitly set, check system preference
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    body.classList.add('light-mode');
+                    localStorage.setItem('theme', 'light-mode');
+                } else {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark-mode');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+/* --- CSS VARIABLES (Theming) --- */
+:root {
+    --bg-color: #ffffff;
+    --text-main: #222222;
+    --text-muted: #555555;
+    --border-color: #eaeaea;
+    --icon-filter: none; /* Keeps icons normal in light mode */
+}
+
+/* Detect System OS Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --text-main: #e0e0e0;
+        --text-muted: #a0a0a0;
+        --border-color: #333333;
+        --icon-filter: invert(1); /* Turns black icons white */
+    }
+}
+
+/* Manual Overrides for the Toggle Button */
+body.light-mode {
+    --bg-color: #ffffff;
+    --text-main: #222222;
+    --text-muted: #555555;
+    --border-color: #eaeaea;
+    --icon-filter: none;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --border-color: #333333;
+    --icon-filter: invert(1);
+}
+
+/* --- BASE STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding doesn't break widths */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: "Inter", sans-serif;
+    padding: 20px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Typography */
+#name {
+    margin-top: 50px;
+    font-family: "Fira Code", monospace;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+.welcome {
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.introduction {
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+}
+
+/* --- LAYOUT: INTRO CONTAINER --- */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
+    gap: 40px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.profile-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profileImage {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.socials {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.icons {
+    max-width: 30px;
+    height: auto;
+    filter: var(--icon-filter); /* Applies inversion in dark mode */
+    transition: transform 0.2s ease;
+}
+
+.icons:hover {
+    transform: translateY(-3px);
+}
+
+/* --- LAYOUT: EXPERIENCE & EDUCATION --- */
+.portfolio-container {
+    max-width: 900px;
+    width: 100%;
+}
+
+.info-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.entry {
+    margin-bottom: 25px;
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.institution, .role {
+    font-weight: bold;
+    font-size: 1.15rem;
+}
+
+.date {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.entry-details {
+    margin-top: 5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* --- RESPONSIVE DESIGN (Mobile) --- */
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: 15px;
+        right: 15px;
+    }
+
+    #name {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        grid-template-columns: 1fr; /* Stacks image on top of text */
+        text-align: center;
+        gap: 20px;
+    }
+
+    .introduction {
+        text-align: left; /* Justified text looks bad on small screens */
+    }
+
+    .entry-header {
+        flex-direction: column; /* Stacks dates under titles */
+    }
+
+    .date {
+        margin-top: 4px;
+    }
+}
