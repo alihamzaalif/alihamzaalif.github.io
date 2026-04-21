@@ -4,7 +4,7 @@
     --text-main: #222222;
     --text-muted: #555555;
     --border-color: #eaeaea;
-    --icon-filter: none; /* Keeps icons normal in light mode */
+
 }
 
 /* Detect System OS Dark Mode */
@@ -14,7 +14,7 @@
         --text-main: #e0e0e0;
         --text-muted: #a0a0a0;
         --border-color: #333333;
-        --icon-filter: invert(1); /* Turns black icons white */
+
     }
 }
 
@@ -24,16 +24,12 @@ body.light-mode {
     --text-main: #222222;
     --text-muted: #555555;
     --border-color: #eaeaea;
-    --icon-filter: none;
-}
 
-body.dark-mode {
     --bg-color: #121212;
     --text-main: #e0e0e0;
     --text-muted: #a0a0a0;
     --border-color: #333333;
-    --icon-filter: invert(1);
-}
+
 
 /* --- BASE STYLES --- */
 * {
@@ -126,13 +122,19 @@ body {
 .icons {
     max-width: 30px;
     height: auto;
-    filter: var(--icon-filter); /* Applies inversion in dark mode */
     transition: transform 0.2s ease;
 }
 
 .icons:hover {
     transform: translateY(-3px);
 }
+
+/* Only invert the GitHub icon (black bg) in dark mode — LinkedIn and LeetCode have their own colors */
+@media (prefers-color-scheme: dark) {
+    .socials a:nth-child(1) .icons { filter: invert(1); }
+}
+body.dark-mode .socials a:nth-child(1) .icons { filter: invert(1); }
+body.light-mode .socials a:nth-child(1) .icons { filter: none; }
 
 /* --- LAYOUT: EXPERIENCE & EDUCATION --- */
 .portfolio-container {
