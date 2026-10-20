@@ -215,3 +215,31 @@ img[alt="GitHub"] {
         margin-top: 4px;
     }
 }
+
+/* --- ROLE & ENTRY LISTS --- */
+.current-role {
+    margin-top: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.company {
+    font-style: italic;
+}
+
+.entry-list {
+    margin-top: 8px;
+    padding-left: 20px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.entry-list li {
+    margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+    .entry-list {
+        text-align: left;
+    }
+}
